@@ -13,6 +13,11 @@ const roomSchema = mongoose.Schema({
     rentFee : {
         type : Number,
         required : true
+    },
+    isAvailable : {
+        type : Boolean,
+        default : true,
+        required : true
     }
 },{
     timestamps:true
