@@ -5,6 +5,11 @@ const MedicineSchema = mongoose.Schema({
         type: String,
         required:true
     },
+    generic:{
+        type: mongoose.Types.ObjectId,
+        ref: 'Generic',
+        required:true
+    },
     type : {
         type : String,
         enum : ['Tablet','Capsule','Syrup','Others'],
