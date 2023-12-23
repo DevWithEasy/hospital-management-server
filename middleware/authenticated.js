@@ -9,6 +9,7 @@ const authenticated=(req,res,next)=>{
                     success : false,
                     message : 'Authentication failed'
                 })
+                console.log(err)
             }else{
                 req.body.userId = decode.id
                 next()

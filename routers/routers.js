@@ -1,9 +1,14 @@
 const authRouters = require('./authRouters')
+const floorRouters = require('./floorRouters')
 
 const routers = [
     {
         path : '/api/auth',
         handler : authRouters
+    },
+    {
+        path : '/api/floor',
+        handler : floorRouters
     },
     {
         path : '/',
