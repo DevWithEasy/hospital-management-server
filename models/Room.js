@@ -6,11 +6,11 @@ const roomSchema = mongoose.Schema({
         ref : 'Floor',
         required:true
     },
-    roomNo :{
+    no :{
         type : Number,
         required : true
     },
-    rentFee : {
+    fee : {
         type : Number,
         required : true
     },

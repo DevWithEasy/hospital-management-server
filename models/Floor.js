@@ -8,6 +8,16 @@ const floorSchema = mongoose.Schema({
     no:{
         type: Number,
         required:true
+    },
+    rooms : {
+        type: [
+            {
+                type: mongoose.Types.ObjectId,
+                ref : 'Room'
+            }
+        ],
+        default : [],
+        required : true
     }
 },{
     timestamps:true
