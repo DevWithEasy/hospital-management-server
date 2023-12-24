@@ -132,11 +132,11 @@ exports.createRoom=async(req,res,next) =>{
             ...req.body
         })
 
-        await newRoom.save()
+        const room = await newRoom.save()
 
         await Floor.findByIdAndUpdate(req.body.floorId,{
             $push : {
-                rooms : req.body.floorId
+                rooms : room._id
             }
         })
 
@@ -168,6 +168,48 @@ exports.updateRoom=async(req,res,next)=>{
             status : 200,
             message : 'Successfully updated floor.',
             data : {}
+        })
+    } catch (error) {
+        return res.status(500).json({
+            success : false,
+            status : 500,
+            message : error.message
+        })
+    }
+}
+
+exports.deleteRoom=async(req,res,next)=>{
+    try {
+        await Room.findByIdAndDelete(req.params.r_id)
+        await Floor.findByIdAndUpdate(req.params.f_id,{
+            $pull : {
+                rooms : req.params.r_id
+            }
+        })
+        return res.status(200).json({
+            success : true,
+            status : 200,
+            message : 'Successfully deleted floor.',
+            data : {}
+        })
+    } catch (error) {
+        return res.status(500).json({
+            success : false,
+            status : 500,
+            message : error.message
+        })
+    }
+}
+
+exports.getAllFloorDetails=async(req,res,next) =>{
+    try {
+        const floors = await Floor.find({}).populate('rooms')
+
+        return res.status(200).json({
+            success : true,
+            status : 200,
+            message : 'Successfully floor created.',
+            data : floors
         })
     } catch (error) {
         return res.status(500).json({
