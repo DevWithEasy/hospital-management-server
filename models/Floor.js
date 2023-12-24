@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
 const floorSchema = mongoose.Schema({
-    floorNo:{
+    name : {
+        type: String,
+        required:true
+    },
+    no:{
         type: Number,
         required:true
     }
