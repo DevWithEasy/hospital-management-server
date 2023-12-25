@@ -6,7 +6,7 @@ const doctorSchema = mongoose.Schema({
         required: true
     },
     image: {
-        name: {
+        id : {
             type: String,
             required: true
         },
@@ -31,6 +31,16 @@ const doctorSchema = mongoose.Schema({
         type: Number,
         required: true
     },
+    shedules : {
+        type : [
+            {
+                type : mongoose.Types.ObjectId,
+                ref : 'Shedule'
+            }
+        ],
+        required : true,
+        default : []
+    }
 }, {
     timestamps: true
 })
