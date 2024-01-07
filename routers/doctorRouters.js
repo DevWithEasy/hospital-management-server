@@ -12,5 +12,4 @@ router.post('/',authenticated,upload.single('image'),create)
     .post('/shedule/:d_id',authenticated,createShedule)
     .put('/shedule/:id',authenticated,updateShedule)
     .delete('/shedule/:id',authenticated,deleteShedule)
-
 module.exports = router

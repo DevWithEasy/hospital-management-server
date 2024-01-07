@@ -1,6 +1,7 @@
 const authRouters = require('./authRouters')
 const floorRouters = require('./floorRouters')
 const doctorRouters = require('./doctorRouters')
+const genericRouters = require('./genericRouters') 
 
 const routers = [
     {
@@ -14,6 +15,10 @@ const routers = [
     {
         path : '/api/doctor',
         handler : doctorRouters
+    },
+    {
+        path : '/api/generic',
+        handler : genericRouters
     },
     {
         path : '/',
