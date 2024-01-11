@@ -25,6 +25,23 @@ const patientSchema = mongoose.Schema({
         type: mongoose.Types.ObjectId,
         required:'Room'
     },
+    entryfee : {
+        type: Number,
+        required:true,
+        default : 300
+    },
+    doctor : {
+        type: mongoose.Types.ObjectId,
+        required:'Doctor'
+    },
+    doctorFee : {
+        type: Number,
+        required:true,
+        default : 900
+    },
+    outTime : {
+        type : Date
+    }
 },{
     timestamps:true
 })
